@@ -127,6 +127,30 @@ section{
 }
 
 
+
+/* ======================================================
+   VIDEO-WRAPPER (Reusable)
+====================================================== */
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px; 
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
 /* ======================================================
    LIST STYLE
 ====================================================== */
@@ -224,7 +248,7 @@ section{
 .page-career .career-layout{
   display: grid;
   gap: 2rem;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .page-career .career-aside .card{
