@@ -1,6 +1,12 @@
 /* ======================================================
    BASE STYLES
 ====================================================== */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
 
 body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -248,7 +254,7 @@ section{
 .page-career .career-layout{
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr;
+  grid-template-columns:1fr;
 }
 
 .page-career .career-aside .card{
@@ -259,7 +265,7 @@ section{
 /* Layout: cards inside main */
 .page-career .career-main{
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /* Make assessment span full width */
