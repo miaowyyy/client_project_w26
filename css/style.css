@@ -250,37 +250,10 @@ section{
    CAREER PAGE (Grid Example #3 — Main RWD layout)
 ====================================================== */
 
-/* Layout: main + aside */
-.page-career .career-layout{
-  display: grid;
-  gap: 2rem;
-  grid-template-columns:1fr;
-}
-
-.page-career .career-aside .card{
-  background: rgba(255, 203, 5, 0.12);  /* soft maize */
-}
-
-
-/* Layout: cards inside main */
 .page-career .career-main{
   display: grid;
-  gap: 1rem;
-}
-
-/* Make assessment span full width */
-.page-career .career-card--assessment{
-  grid-column: 1 / -1;
-}
-
-/* Center image */
-.page-career .career-figure{
-  text-align: center;
-}
-
-.page-career .career-figure img{
-  margin: 0 auto;
-  max-width: 450px;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
 }
 
 
