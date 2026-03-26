@@ -104,7 +104,7 @@
 
                 <div class="tips-layout">
                     <div class="tips-text">
-                        <h3>The TIARA Method</h3>
+                        <h2>The TIARA Method</h2>
                         <p>Use these five topics to guide your informational interviews:</p>
 
                         <ul class="bullets">
@@ -122,7 +122,6 @@
                                 alt="Several benefits of networking and building connections.">
                         </figure>
 
-                        <!-- Add more images here later if you want -->
                     </div>
                 </div>
             </section>
@@ -132,12 +131,14 @@
 
     <footer class="site-footer">
         <p>
-            University of Michigan School of Information |
-            <a href="https://umich.instructure.com/courses/137916" target="_blank" rel="noopener noreferrer">
-                UMSI Career Development Office
-            </a>
-        </p>
+            &copy;<span id="year"></span> of Michigan School of Information | <a
+                href="https://umich.instructure.com/courses/137916">UMSI
+                Career Development Office </a></p>
     </footer>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
 </body>
 
 </html>

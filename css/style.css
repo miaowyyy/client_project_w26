@@ -88,21 +88,23 @@ section{
 /* ======================================================
    NAVIGATION (FLEX)
 ====================================================== */
-
 .nav-list{
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+  align-items: left;
+  gap: 0.75rem;
 }
 
 .nav-list a{
   display: block;
-  padding: 0.75rem 1rem;
+  padding: 0.65rem 1rem;
   color: white;
   text-decoration: none;
   border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .nav-list a:hover,
@@ -112,8 +114,25 @@ section{
 }
 
 .nav-list a[aria-current="page"]{
-  border: 2px solid #FFCB05;
+  border-bottom: 3px solid #FFCB05;
+  border-radius: 0;
 }
+
+/* tablet and up */
+@media screen and (min-width: 768px){
+  .nav-list{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .nav-list a{
+    padding: 0.6rem 0.9rem;
+  }
+}
+
 
 
 /* ======================================================
@@ -134,26 +153,45 @@ section{
 
 
 
+@media screen and (min-width: 768px){
+  .card{
+    max-width: 900px;
+    margin: 2rem auto;
+  }
+
+  .resource-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+
 /* ======================================================
    VIDEO-WRAPPER (Reusable)
 ====================================================== */
 
-.video-wrapper {
+.video-wrap {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
+  max-width: 320px;
+  margin: 1rem 0;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 12px; 
+  border-radius: 12px;
 }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.video-wrap iframe {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .video-wrap {
+    max-width: 600px;
+    margin: 1.5rem auto;
+  }
 }
 
 
@@ -178,7 +216,7 @@ section{
 
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr 1fr;
 }
 
 .popular-grid li{
@@ -194,22 +232,29 @@ section{
 }
 
 
+@media screen and (min-width: 768px) {
+  .popular-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 /* ======================================================
    RESUME PAGE (Grid Example #1)
 ====================================================== */
 
-.page-resume .resume-resource-list{
+.resume-resource-list{
   list-style: none;
   padding: 0;
   margin: 1rem 0 0;
 
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-.page-resume .resource-item{
+.resource-item{
   display: grid;
-  grid-template-columns: 2fr 3fr ;
+  grid-template-columns: 1fr 2fr ;
   gap: 0.5rem 1rem;
 
   background: #f8f9fa;
@@ -217,43 +262,207 @@ section{
   border-radius: 10px;
 }
 
-.page-resume .resource-title{
+.resource-title{
   font-weight: 600;
 }
+
+
+.resume-form[hidden]{
+  display: none;
+}
+
+.resume-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-form label,
+.resume-form legend{
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #00274C;
+}
+
+.resume-form input,
+.resume-form textarea{
+  width: 100%;
+  padding: 0.65rem;
+  font-size: 1rem;
+  border: 1px solid #bfc7cf;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.resume-form textarea{
+  min-height: 110px;
+  resize: vertical;
+}
+
+fieldset.form-group{
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin: 0;
+}
+
+.checkbox-group{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.checkbox-group input[type="checkbox"]{
+  width: auto;
+  margin: 0;
+}
+
+.checkbox-group label{
+  margin: 0;
+  font-size: 1rem;
+}
+
+
+
+.resume-form .submit-btn{
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  background: #00274C;
+  color: white;
+  border: none;
+}
+
+.resume-form .submit-btn:hover,
+.resume-form .submit-btn:focus-visible{
+  background: #FFCB05;
+  color: #00274C;
+}
+
+
+
+
+@media screen and (min-width: 768px){
+  .resume-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
+  }
+
+  .resume-form fieldset,
+  .resume-form .form-group:last-of-type,
+  .resume-form .submit-btn{
+    grid-column: 1 / -1;
+  }
+}
+
+
+
 
 
 /* ======================================================
    NETWORKING PAGE (Grid Example #2)
 ====================================================== */
 
-.page-networking .image-grid{
+.image-grid{
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: 1fr 1fr;
 }
 
-.page-networking .image-grid figure{
+.image-grid figure{
   margin: 0;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 12px;
 }
 
-.page-networking .image-grid img{
+.image-grid img{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 
+
+.tips-media{
+  margin: 1.5rem 0;
+}
+
+.tips-media figure{
+  margin: 0;
+}
+
+.tips-media img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .image-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .tips-media{
+    max-width: 700px;
+    margin: 2rem auto;
+  }
+
+  .tips-media img{
+    border-radius: 16px;
+  }
+}
+
 /* ======================================================
    CAREER PAGE (Grid Example #3 — Main RWD layout)
 ====================================================== */
 
-.page-career .career-main{
+.career-main{
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
+}
+
+.career-main .card{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.career-main .callout{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.career-figure img{
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 1rem auto;
+}
+
+
+@media screen and (min-width: 768px){
+  .career-main{
+    gap: 2.5rem;
+  }
+
+  .career-figure img{
+    max-width: 420px;
+  }
 }
 
 
@@ -271,4 +480,67 @@ section{
 
 .site-footer a{
   color: #FFCB05;
+}
+
+
+
+
+
+/* ======================================================
+   ERROR PAGE
+====================================================== */
+.error-page{
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+
+.error-links{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.error-btn{
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  background: #00274C;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.error-btn:hover,
+.error-btn:focus-visible{
+  background: #FFCB05;
+  color: #00274C;
+}
+
+
+header{
+  background: #00274C;
+  padding: 0.8rem 1rem;
+}
+
+.header-grid{
+  display: flex;
+  justify-content: left;
+}
+
+.header-grid img{
+  width: 72px;
+  height: auto;
+  display: block;
+}
+
+
+
+@media screen and (min-width: 768px){
+  .error-links{
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }

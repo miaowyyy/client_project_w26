@@ -115,14 +115,138 @@
             <p>Evaluate your resume using the same criteria as UMSI’s Career Development Office.</p>
           </li>
         </ul>
-
-        <p>
-          Ready for review?
-          <a href="https://umich.instructure.com/courses/137916/pages/talk-to-a-career-coach" target="_blank" rel="noopener">
-            Book a resume review appointment
-          </a>.
-        </p>
       </section>
+
+
+<section class="resume-contact card" aria-labelledby="quick-appointment-heading">
+  <h2 id="quick-appointment-heading">Quick Appointment Request</h2>
+
+  <p class="form-intro">
+    Want resume review support? Share your contact information below and a career development staff member may follow up with you.
+  </p>
+
+  <p class="form-link">
+    Prefer the official booking page?
+    <a href="https://umich.instructure.com/courses/137916/pages/talk-to-a-career-coach"
+      target="_blank" rel="noopener noreferrer">
+      Book a resume review appointment
+    </a>.
+  </p>
+
+  <div class="consent-box">
+    <input type="checkbox" id="consent-toggle" name="consent-toggle">
+    <label for="consent-toggle">
+      I agree to share my contact information for resume review follow-up.
+    </label>
+  </div>
+
+    <button type="button" id="show-form-btn" class="cta-btn" disabled>
+    Start Quick Request
+  </button>
+
+  <form action="https://formspree.io/f/xykbypnd" method="POST"
+    class="resume-form" id="resume-form" hidden>
+
+    <div class="form-group">
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" name="first_name" autocomplete="given-name">
+    </div>
+
+    <div class="form-group">
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" name="last_name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email">
+    </div>
+
+    <div class="form-group">
+      <label for="major">Major</label>
+      <input type="text" id="major" name="major">
+    </div>
+
+    <fieldset class="form-group">
+      <legend>What would you like help with?</legend>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="resume-feedback" name="help_with[]" value="Resume feedback">
+        <label for="resume-feedback">Resume feedback</label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="internship-search" name="help_with[]" value="Internship search">
+        <label for="internship-search">Internship search</label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="job-search" name="help_with[]" value="Job search">
+        <label for="job-search">Job search</label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="general-guidance" name="help_with[]" value="General career guidance">
+        <label for="general-guidance">General career guidance</label>
+      </div>
+    </fieldset>
+
+    <div class="form-group">
+      <label for="message">Additional Notes (Optional)</label>
+      <textarea id="message" name="message" rows="5"></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="New Quick Appointment Request">
+
+    <button type="submit" class="submit-btn">Submit Request</button>
+  </form>
+</section>
+
+
+
+<script>
+  const consentToggle = document.getElementById("consent-toggle");
+  const showFormBtn = document.getElementById("show-form-btn");
+  const resumeForm = document.getElementById("resume-form");
+
+  consentToggle.addEventListener("change", function () {
+    showFormBtn.disabled = !this.checked;
+  });
+
+  showFormBtn.addEventListener("click", function () {
+    if (consentToggle.checked) {
+      resumeForm.hidden = false;
+      showFormBtn.hidden = true;
+
+      document.getElementById("first-name").required = true;
+      document.getElementById("last-name").required = true;
+      document.getElementById("email").required = true;
+      document.getElementById("major").required = true;
+    }
+  });
+
+  consentToggle.addEventListener("change", function () {
+  showFormBtn.disabled = !this.checked;
+
+  if (!this.checked) {
+    resumeForm.hidden = true;
+    showFormBtn.hidden = false;
+  }
+});
+
+</script>
+
+
+      
+
+
+
+
+
+
+
+
+
 
       <section class="card callout">
         <h2>Resume FAQ</h2>
@@ -147,9 +271,15 @@
 
 
     <footer class="site-footer">
-        <p>University of Michigan School of Information | <a href="https://umich.instructure.com/courses/137916">UMSI
+        <p>
+            &copy;<span id="year"></span> of Michigan School of Information | <a
+                href="https://umich.instructure.com/courses/137916">UMSI
                 Career Development Office </a></p>
     </footer>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
 </body>
 
 </html>

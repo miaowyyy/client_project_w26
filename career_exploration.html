@@ -68,7 +68,7 @@
             </figcaption>
           </figure>
 
-          <h3>The RIASEC Model Explained</h3>
+          <h2>The RIASEC Model Explained</h2>
 
           <p>
             The Holland Code breaks down professional personalities into six distinct types. Most people are a
@@ -124,14 +124,16 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <p>
-      University of Michigan School of Information |
-      <a href="https://umich.instructure.com/courses/137916">
-        UMSI Career Development Office
-      </a>
-    </p>
-  </footer>
+    <footer class="site-footer">
+        <p>
+            &copy;<span id="year"></span> of Michigan School of Information | <a
+                href="https://umich.instructure.com/courses/137916">UMSI
+                Career Development Office </a></p>
+    </footer>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
 
 </body>
 </html>

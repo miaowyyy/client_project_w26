@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | UMSI Career Resources</title>
+  <link rel="stylesheet" href="css/html5reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+  <header>
+    <div class="header-grid">
+        <img src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI logo">
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <section class="card error-page">
+      <h1>404: Page Not Found</h1>
+      <p>Sorry, the page you are looking for does not exist or may have been moved.</p>
+      <p>You can go back to the home page or explore the career resources below.</p>
+
+      <div class="error-links">
+        <a href="index.html" class="error-btn">Go to Home</a>
+        <a href="resume.html" class="error-btn">Resume Help</a>
+        <a href="networking.html" class="error-btn">Networking</a>
+        <a href="career_exploration.html" class="error-btn">Career Exploration</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy;<span id="year"></span> University of Michigan School of Information |
+      <a href="https://umich.instructure.com/courses/137916">UMSI Career Development Office</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -10,6 +10,8 @@
 
 </head>
 
+
+
 <body>
 
     <a href="#main" class="skip-link">Skip to Main Content</a>
@@ -85,7 +87,7 @@
 
 
             <section class="card" aria-label="Most Popular Resources">
-                <h3>Most Popular Resources</h3>
+                <h2>Most Popular Resources</h2>
 
                 <ul class="popular-grid">
 
@@ -133,7 +135,7 @@
 
 
             <section class="card" aria-label="Quick Navigation">
-                <h3>Quick Navigation by Topic</h3>
+                <h2>Quick Navigation by Topic</h2>
                 <ul class="resource-list">
                     <li><a href="resume.html">Resumes</a></li>
                     <li><a href="networking.html">Networking & Connections</a></li>
@@ -155,9 +157,19 @@
     </main>
 
     <footer class="site-footer">
-        <p>University of Michigan School of Information | <a href="https://umich.instructure.com/courses/137916">UMSI
+        <p>
+            &copy;<span id="year"></span> of Michigan School of Information | <a
+                href="https://umich.instructure.com/courses/137916">UMSI
                 Career Development Office </a></p>
     </footer>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+
+
+
+
 </body>
 
 </html>
